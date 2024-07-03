@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cap_Register.Views.StudentViews.SuggestedCourses">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+
+            </Grid.RowDefinitions>
+
+            <CollectionView x:Name="TestCollectionView"  ItemsSource="{Binding SuggestedCoursesData}" SelectionMode="None" 
+                         VerticalScrollBarVisibility="Never"   SelectionChangedCommand="{Binding MultiSelectionCommand}"
+                            SelectionChangedCommandParameter="{Binding SelectedItems,Source={x:Reference TestCollectionView}}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="0" HorizontalItemSpacing="0" Span="1"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid Padding="10" WidthRequest="80" HeightRequest="35">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                                <Label  Text="{Binding CourseName}" FontSize="Large"></Label>
+                            </StackLayout>
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+           
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
